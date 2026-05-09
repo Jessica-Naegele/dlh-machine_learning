@@ -1,4 +1,5 @@
 -- selects only those with score > 10
 
-SELECT * FROM db_0.second_table
-WHERE score > 10;
+SELECT score, name FROM second_table
+WHERE score >= 10
+ORDER BY score DESC;
