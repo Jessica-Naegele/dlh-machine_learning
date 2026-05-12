@@ -11,14 +11,10 @@ print(mat2)
 print(matrix_transpose(mat2))
 
 
-"""
-print("--- test mat 2")
-"""
-"""    current_layer = matrix
-    while isinstance(current_layer, list):
-        size.append(len(current_layer))
-        current_layer = current_layer[0]"""
-"""size = []
+
+print("--- test mat 1")
+
+size = []
 current_layer = mat1
 while isinstance(current_layer, list):
     size.append(len(current_layer))
@@ -32,28 +28,28 @@ if len(size) == 2:
     
     for i in range(0, size[1]):
         r = []
-        for row in mat2:
+        for row in mat1:
            # print(row[i])
            r.append(row[i])
         transpose.append(r)
 
 print(transpose)
-"""
 
-"""
+print("--- test mat2") 
+
 
 size = []
 current_layer = mat2
 while isinstance(current_layer, list):
     size.append(len(current_layer))
     current_layer = current_layer[0]
-print(size)
+print(f"size: {size}")
 
-print("---") 
+print("--- test mat2") 
 
 transpose = []
 if len(size) == 2:
-    
+      
     for i in range(0, size[1]):
         r = []
         for row in mat2:
@@ -61,11 +57,12 @@ if len(size) == 2:
            r.append(row[i])
         transpose.append(r)
 else:
+    current_layer = mat2
     l = len(size)
     # column
-    for i in range(0, size(l-1)): 
-        for 
+    while isinstance(current_layer, list):
+        current_layer = current_layer[0]
+    print("current_layer: {}".format(current_layer.pop()))
+    #transpose.append(current_layer)
 
 print(transpose)
-
-"""
