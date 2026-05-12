@@ -21,7 +21,5 @@ def add_matrices2D(mat1, mat2):
                 r.append(mat1[i][j] + mat2[i][j])
             new_m.append(r)
         return new_m
-    else: 
+    else:
         return None
-
-
