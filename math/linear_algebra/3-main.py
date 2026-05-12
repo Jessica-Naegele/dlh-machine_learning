@@ -11,6 +11,7 @@ print(mat2)
 print(matrix_transpose(mat2))
 
 
+"""
 
 print("--- test mat 1")
 
@@ -20,6 +21,7 @@ while isinstance(current_layer, list):
     size.append(len(current_layer))
     current_layer = current_layer[0]
 print(size)
+print(f"Länge Size: {size}")
 
 print("---") 
 
@@ -66,3 +68,4 @@ else:
     #transpose.append(current_layer)
 
 print(transpose)
+"""

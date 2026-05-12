@@ -7,15 +7,12 @@ def matrix_transpose(matrix):
     size = []
     current_layer = matrix
     while isinstance(current_layer, list):
-        current_layer = current_layer[0]
         size.append(len(current_layer))
-    # calculate size for mutlidimensional matrix
+        current_layer = current_layer[0]
     transpose = []
-#    if len(size) == 2:
     for i in range(0, size[1]):
         r = []
-        for row in mat2:
-            # print(row[i])
+        for row in matrix:
             r.append(row[i])
         transpose.append(r)
     return transpose
