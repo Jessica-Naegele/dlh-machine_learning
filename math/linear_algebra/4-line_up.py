@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """This function adds two arrays elementwise when they have the same shape"""
 
 
