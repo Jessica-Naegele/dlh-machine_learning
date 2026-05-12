@@ -15,3 +15,26 @@ print(matrix_shape(mat3))
 
 #print(len(mat1))
 #print(len(mat2))
+
+
+# A 2x1x1x2x2 matrix
+test_matrix_5d = [
+    [ # Level 1: First "block"
+        [ # Level 2
+            [ # Level 3
+                [[10, 11], [12, 13]] # Level 4 & 5: A 2x2 matrix
+            ]
+        ]
+    ],
+    [ # Level 1: Second "block"
+        [ 
+            [ 
+                [[20, 21], [22, 23]] 
+            ]
+        ]
+    ]
+]
+print(matrix_shape(test_matrix_5d))
+print(len(matrix_shape(test_matrix_5d)))
+testerli = matrix_shape(test_matrix_5d)
+print(testerli[len(testerli)-1])
