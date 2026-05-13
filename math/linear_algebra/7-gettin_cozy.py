@@ -17,12 +17,11 @@ def cat_matrices2D(mat1, mat2, axis=0):
         return new_mat
     elif axis == 1:
         r = []
-        for i in range (0, len(mat1)):
+        for i in range(0, len(mat1)):
             r = mat1[i][:]
             r.extend(mat2[i])
             new_mat.append(r)
         return new_mat
     else:
         print("else")
-        return None           
-    
+        return None
