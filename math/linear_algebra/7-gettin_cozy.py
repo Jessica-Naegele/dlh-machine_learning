@@ -10,25 +10,27 @@ If the two matrices cannot be concatenated, return None
 
 def cat_matrices2D(mat1, mat2, axis=0):
     """Function concatenates two matrices along a specific axis"""
-
-    new_mat = []
-    if axis == 0:
-        if len(mat1[0]) == len(mat2[0]):
-            new_mat = [row[:] for row in mat1]
-            r2 = [row[:] for row in mat2]
-            new_mat.extend(r2)
-            return new_mat
-        return None
-    elif axis == 1:
-        if len(mat1[0]) == len(mat2):
-            r = []
-            for i in range(0, len(mat1)):
-                r = mat1[i][:]
-                r2 = mat2[i][:]
-                r.extend(r2)
-                new_mat.append(r)
-            return new_mat
-        return None
-    else:
-        print("else")
+    try:
+        new_mat = []
+        if axis == 0:
+            if len(mat1[0]) == len(mat2[0]):
+                new_mat = [row[:] for row in mat1]
+                r2 = [row[:] for row in mat2]
+                new_mat.extend(r2)
+                return new_mat
+            return None
+        elif axis == 1:
+            if len(mat1[0]) == len(mat2):
+                r = []
+                for i in range(0, len(mat1)):
+                    r = mat1[i][:]
+                    r2 = mat2[i][:]
+                    r.extend(r2)
+                    new_mat.append(r)
+                return new_mat
+            return None
+        else:
+            print("else")
+            return None
+    except Exception:
         return None
