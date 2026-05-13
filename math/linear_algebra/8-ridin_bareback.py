@@ -12,25 +12,16 @@ def mat_mul(mat1, mat2):
         """multiplication"""
         new_mat = []
         for i in range(0, len(mat1)):  # row in mat1
- #           print(f"len(mat1): {len(mat1)}")
             row = []
             for k in range(0, len(mat2[0])):  # row in mat 2
-            # row 1 mat 1 col 1 mat 2
-                print(f"k: {k}")
+                # row 1 mat 1 col 1 mat 2
                 z = 0  # sum aka new value of the matrix
-                for j in range(0, len(mat2)):  # column in mat2 
- #                   print(f"len(mat2): {len(mat2)}")
+                for j in range(0, len(mat2)):  # column in mat2
                     # column 1 mat 1 row 1 mat 2
                     x = mat1[i][j] * mat2[j][k]
                     z += x
-                    print("mat1[{}][{}] * mat2[{}][{}] : {} * {}  ={} ".format(i, j, j, k,mat1[i][j], mat2[j][k], x))
                 row.append(z)
-            print(row)
             new_mat.append(row)
-        print("---")
         return new_mat
-
-
-
     else:
         return None
