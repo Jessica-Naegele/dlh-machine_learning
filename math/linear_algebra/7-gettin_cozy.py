@@ -14,7 +14,7 @@ def cat_matrices2D(mat1, mat2, axis=0):
     new_mat = []
     if axis == 0:
         if len(mat1) == len(mat2[0]):
-            new_mat.extend(mat1)
+            new_mat = [row[:] for row in mat1]
             new_mat.extend(mat2)
             return new_mat
         return None
