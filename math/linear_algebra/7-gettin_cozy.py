@@ -11,26 +11,19 @@ If the two matrices cannot be concatenated, return None
 def cat_matrices2D(mat1, mat2, axis=0):
     """Function concatenates two matrices along a specific axis"""
     try:
-        new_mat = []
         if axis == 0:
-            if len(mat1[0]) == len(mat2[0]):
-                new_mat = [row[:] for row in mat1]
-                r2 = [row[:] for row in mat2]
-                new_mat.extend(r2)
-                return new_mat
-            return None
+            # Check if widths (number of columns) match
+            if len(mat1[0]) != len(mat2[0]):
+                return None
+            return [row[:] for row in mat1] + [row[:] for row in mat2]
         elif axis == 1:
-            if len(mat1[0]) == len(mat2):
-                r = []
-                for i in range(0, len(mat1)):
-                    r = mat1[i][:]
-                    r2 = mat2[i][:]
-                    r.extend(r2)
-                    new_mat.append(r)
-                return new_mat
-            return None
-        else:
-            print("else")
-            return None
-    except Exception:
+            if len(mat1) != len(mat2):
+                return None
+            new_mat = []
+            for i in range(len(mat1)):
+                new_row = mat1[i][:] + mat2[i][:]
+                new_mat.append(new_row)
+            return new_mat
+        return None
+    except (IndexError, TypeError):
         return None
