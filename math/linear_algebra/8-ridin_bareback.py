@@ -8,6 +8,7 @@ If the two matrices cannot be multiplied, return None
 
 
 def mat_mul(mat1, mat2):
+    """function for mutliplciation"""
     if len(mat1[0]) == len(mat2):
         """multiplication"""
         new_mat = []
