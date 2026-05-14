@@ -5,6 +5,7 @@ You are not allowed to use any loops or conditional statements
 You must return a new numpy.ndarray
 """
 
+
 def np_transpose(matrix):
     """function to transpose a matrix with np"""
     new_mat = matrix
