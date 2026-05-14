@@ -7,10 +7,9 @@ You may use: import numpy as np
 You can assume that mat1 and mat2 are never empty
 """
 
-import numpy as np
-
 
 def np_cat(mat1, mat2, axis=0):
+    import numpy as np
     print(f"axis: {axis}")
     new_mat = np.concatenate((mat1, mat2), axis)
     return new_mat
