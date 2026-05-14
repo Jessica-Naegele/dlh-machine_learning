@@ -1,6 +1,6 @@
 -- sql script that creates a trigger that decreases the quanitiy of an item ater adding a new order
 
-CREATE TRIGGER IF NOT EXISTS test
+CREATE TRIGGER IF NOT EXISTS store
 AFTER INSERT ON orders
 FOR EACH ROW 
 BEGIN
