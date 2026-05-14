@@ -3,13 +3,9 @@
 SELECT 
     band_name, 
     CASE 
-        WHEN split = NULL THEN 2020 - formed
+        WHEN split IS NULL THEN 2020 - formed
         ELSE split - formed 
     END AS lifespan 
     FROM metal_bands
 WHERE style LIKE '%Glam rock%'
 ;
-
-
-select * from metal_bands
-WHERE style LIKE '%Glam rock%';
