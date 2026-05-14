@@ -11,16 +11,4 @@ You can assume that mat1 and mat2 are never empty
 
 def np_elementwise(mat1, mat2):
     """Function returning add sub mul div"""
-    tp = []
-    add = mat1 + mat2
-    tp.append(add)
-    sub = mat1 - mat2
-    tp.append(sub)
-    mul = mat1 + mat2
-    tp.append(mul)
-    div = mat1 / mat2
-    tp.append(div)
-
-    tp = tuple(tp)
-
-    return tp
+    return (mat1 + mat2, mat1 - mat2, mat1 * mat2, mat1 / mat2)
