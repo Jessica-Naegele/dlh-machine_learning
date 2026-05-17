@@ -7,7 +7,7 @@ CREATE PROCEDURE ComputeAverageScoreForUser(
 )
 BEGIN
     -- 1. Declare local variables right at the start
-    DECLARE average_score INT;
+    DECLARE calc_avg INT;
 
 
     -- 2. Calculate average score
@@ -16,8 +16,8 @@ BEGIN
     WHERE t2.user_id = user_id;
 
     -- 3. Update into users
-    UPDATE users 
-    SET average_score = average_score
+    UPDATE users t1
+    SET t1.average_score = calc_avg
     WHERE id = user_id ;
 END; //
 
