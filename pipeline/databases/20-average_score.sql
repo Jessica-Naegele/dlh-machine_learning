@@ -7,7 +7,7 @@ CREATE PROCEDURE ComputeAverageScoreForUser(
 )
 BEGIN
     -- 1. Declare local variables right at the start
-    DECLARE calc_avg INT;
+    DECLARE calc_avg FLOAT;
 
 
     -- 2. Calculate average score
@@ -21,4 +21,4 @@ BEGIN
     WHERE id = user_id ;
 END; //
 
-DELIMITER;
+DELIMITER ;
