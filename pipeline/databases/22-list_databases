@@ -1,0 +1,2 @@
+mongosh
+show dbs
