@@ -1,15 +1,6 @@
 #!/usr/bin/env python3
 """
-Write a function def determinant(matrix): 
-that calculates the determinant of a matrix:
-
-matrix is a list of lists whose determinant should be calculated
-If matrix is not a list of lists, raise a TypeError with the 
-message matrix must be a list of lists
-If matrix is not square, raise a ValueError with the message 
-matrix must be a square matrix
-The list [[]] represents a 0x0 matrix
-Returns: the determinant of matrix
+Write a function def determinant(matrix)
 """
 
 
@@ -23,39 +14,36 @@ def matrix_shape(matrix):
     return size
 
 
-
+def cut_matrices(mat1, col):
+    """cuts the columns needed"""
+    new_mat = [row[:col] + row[col+1:] for row in mat1]
+    return new_mat
 
 
 def determinant(matrix):
     """Function to calculate the determinant"""
-    try:
+    if not isinstance(matrix, list) or matrix == []:
+        raise TypeError("matrix must be a list of lists")
+    det = 0
+    if matrix == [[]]:
+        det = 1
+        return det
+    else:
         size = matrix_shape(matrix)
-        print(f"size: {size}")  # helper
-        det = 0
-        if matrix == [[]]:
-            return det
-        elif size == (1):
+        if size[0] != size[1]:
+            raise ValueError("matrix must be a square matrix")
+        if size == [1, 1]:
             det = matrix[0][0]
-        elif size == (2, 2):
-            det = matrix[0][0] * matrix[0][0] - matrix[1][0] * matrix[1][1]
-        else: 
+        elif size == [2, 2]:
+            det = matrix[0][0] * matrix[1][1] - matrix[0][1] * matrix[1][0]
+        else:
             for i in range(len(matrix)):
                 if (i % 2) == 0:
-                    a = matrix[i][i]
+                    a = matrix[0][i]
                 else:
-                    a = - matrix[i][i]
-                for j in range(len(matrix[0])):
-                    h_mat = matrix[1:]
-                    print(f"h_mat : {h_mat}")
-
-
-
-
-
-    except TypeError:
-        """If matrix is not a list of lists, raise a 
-        TypeError with the message matrix must be a 
-        list of lists"""
-        raise "matrix must be a list of lists"
-    except ValueError:
-        raise "matrix must be a square matrix"
+                    a = - matrix[0][i]
+                h_mat = matrix[1:]
+                h_mat2 = cut_matrices(h_mat, i)
+                det += a * (h_mat2[0][0] * h_mat2[1][1] -
+                            h_mat2[0][1] * h_mat2[1][0])
+    return det
