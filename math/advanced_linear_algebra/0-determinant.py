@@ -27,6 +27,7 @@ def is_matrix(matrix):
 
 
 def is_square(matrix):
+    """is a matrix square"""
     num_rows = len(matrix)
     num_cols = len(matrix[0])
     for row in matrix:
