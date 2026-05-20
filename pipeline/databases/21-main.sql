@@ -1,3 +1,5 @@
+#drop function SafeDiv;
+
 SELECT (a / b) FROM numbers;
 
 
