@@ -14,6 +14,18 @@ def matrix_shape(matrix):
     return size
 
 
+def is_matrix(matrix):
+    """is a matrix a matrix"""
+    if not isinstance(matrix, list):
+        return False
+    if matrix == []:
+        return False
+    for row in matrix:
+        if not isinstance(row, list):
+            return False
+    return True
+
+
 def cut_matrices(mat1, col):
     """cuts the columns needed"""
     new_mat = [row[:col] + row[col+1:] for row in mat1]
@@ -22,7 +34,7 @@ def cut_matrices(mat1, col):
 
 def determinant(matrix):
     """Function to calculate the determinant"""
-    if not isinstance(matrix, list) or matrix == []:
+    if is_matrix(matrix) is False:
         raise TypeError("matrix must be a list of lists")
     det = 0
     if matrix == [[]]:
