@@ -26,6 +26,14 @@ def is_matrix(matrix):
     return True
 
 
+def is_square(matrix):
+    num_rows = len(matrix)
+    num_cols = len(matrix[0])
+    for row in matrix:
+        if len(row) != num_rows:
+            raise ValueError("matrix must be a square matrix")
+
+
 def cut_matrices(mat1, col):
     """cuts the columns needed"""
     new_mat = [row[:col] + row[col+1:] for row in mat1]
@@ -41,6 +49,7 @@ def determinant(matrix):
         det = 1
         return det
     else:
+        is_square(matrix)
         size = matrix_shape(matrix)
         if size[0] != size[1]:
             raise ValueError("matrix must be a square matrix")
@@ -56,6 +65,5 @@ def determinant(matrix):
                     a = - matrix[0][i]
                 h_mat = matrix[1:]
                 h_mat2 = cut_matrices(h_mat, i)
-                det += a * (h_mat2[0][0] * h_mat2[1][1] -
-                            h_mat2[0][1] * h_mat2[1][0])
+                det += a * determinant(h_mat2)
     return det
