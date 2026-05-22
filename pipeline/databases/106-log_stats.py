@@ -29,8 +29,22 @@ def log_stats():
     # 4. Print IPs
     print("IPs:")
 
-    # 5. Count IPs
-    
+    # 5. Aggregate IPs
+    pipeline = [
+        # Stage 1: Group and count
+        {"$group": {"_id": "$ip", "count": {"$sum": 1}}},
+
+        # Stage 2: Independent dictionary, quotes added, sorting by count
+        {"$sort": {"count": -1}},
+
+        # Stage 3: Independent dictionary, quotes added
+        {"$limit": 10}
+    ]
+
+    ip_count = nginx_collection.aggregate(pipeline)
+
+    for item in ip_count:
+        print(f"\t{item.get('_id')}: {item.get('count')}")
 
 
 if __name__ == "__main__":
