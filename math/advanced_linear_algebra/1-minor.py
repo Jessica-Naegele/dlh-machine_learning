@@ -43,6 +43,30 @@ def cut_matrices(mat1, colrow, axis):
     return new_mat
 
 
+def determinant(matrix):
+    """Function to calculate the determinant"""
+    det = 0
+    if matrix == [[]]:
+        det = 1
+        return det
+    else:
+        size = matrix_shape(matrix)
+        if size == [1, 1]:
+            det = matrix[0][0]
+        elif size == [2, 2]:
+            det = matrix[0][0] * matrix[1][1] - matrix[0][1] * matrix[1][0]
+        else:
+            for i in range(len(matrix)):
+                if (i % 2) == 0:
+                    a = matrix[0][i]
+                else:
+                    a = - matrix[0][i]
+                h_mat = matrix[1:]
+                h_mat2 = cut_matrices(h_mat, i, axis=1)
+                det += a * determinant(h_mat2)
+    return det
+
+
 def minor(matrix):
     """Function to calculate the determinant"""
     if is_matrix(matrix) is False:
@@ -67,15 +91,9 @@ def minor(matrix):
                     h_mat2 = cut_matrices(h_mat, i, axis=1)
                     if size[0] == 2:
                         new_row.extend(h_mat2[0])
-                    elif matrix_shape(h_mat2) == [2, 2]:
-                        z = (
-                            h_mat2[0][0] * h_mat2[1][1]
-                            - h_mat2[0][1] * h_mat2[1][0]
-                        )
-                        new_row.extend([z])
                     else:
-                        a = matrix[j][i]
-                        new_row.extend(a * minor(h_mat2))
+                        h = determinant(h_mat2)
+                        new_row.extend([h])
                 new_mat.append(new_row)
                 # print("new_mat j= {j} : {new_mat}")
                 j += 1
