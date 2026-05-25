@@ -9,6 +9,7 @@ def matrix_shape(matrix):
     while isinstance(current_layer, list):
         size.append(len(current_layer))
         current_layer = current_layer[0]
+    # print(f"size: {size}")  # helper
     return size
 
 
@@ -33,9 +34,12 @@ def is_square(matrix):
             raise ValueError("matrix must be a non-empty square matrix")
 
 
-def cut_matrices(mat1, col):
-    """cuts the columns needed"""
-    new_mat = [row[:col] + row[col+1:] for row in mat1]
+def cut_matrices(mat1, colrow, axis):
+    """cuts the columns or row needed"""
+    if axis == 0:
+        new_mat = mat1[:colrow] + mat1[colrow+1:]
+    else:
+        new_mat = [row[:colrow] + row[colrow+1:] for row in mat1]
     return new_mat
 
 
@@ -51,21 +55,28 @@ def minor(matrix):
         size = matrix_shape(matrix)
         new_mat = []
         if size[0] != size[1]:
-            raise ValueError("raise ValueError("matrix must be a non-empty square matrix")")
-        if size == [1]:
-            new_mat.append(1)
-        elif size == [1, 1]:
-            new_mat.append(matrix[0][0])
-        elif size == [2, 2]:
-            det = matrix[0][0] * matrix[1][1] - matrix[0][1] * matrix[1][0]
-            new_mat.append(det)
+            raise ValueError("matrix must be a non-empty square matrix")
+        if size == [1, 1]:
+            new_mat.append([1])
         else:
-            for i in range(len(matrix)):
-                if (i % 2) == 0:
-                    a = matrix[0][i]
-                else:
-                    a = - matrix[0][i]
-                h_mat = matrix[1:]
-                h_mat2 = cut_matrices(h_mat, i)
-                det += a * determinant(h_mat2)
-    return det
+            j = 0
+            for row in matrix:
+                new_row = []
+                h_mat = cut_matrices(matrix, j, axis=0)
+                for i in range(len(matrix)):
+                    h_mat2 = cut_matrices(h_mat, i, axis=1)
+                    if size[0] == 2:
+                        new_row.extend(h_mat2[0])
+                    elif matrix_shape(h_mat2) == [2, 2]:
+                        z = (
+                            h_mat2[0][0] * h_mat2[1][1]
+                            - h_mat2[0][1] * h_mat2[1][0]
+                        )
+                        new_row.extend([z])
+                    else:
+                        a = matrix[j][i]
+                        new_row.extend(a * minor(h_mat2))
+                new_mat.append(new_row)
+                # print("new_mat j= {j} : {new_mat}")
+                j += 1
+    return new_mat

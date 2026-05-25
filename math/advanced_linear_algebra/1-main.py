@@ -10,10 +10,11 @@ if __name__ == '__main__':
     mat5 = []
     mat6 = [[1, 2, 3], [4, 5, 6]]
 
-    print(minor(mat1))
-    print(minor(mat2))
-    print(minor(mat3))
-    print(minor(mat4))
+    print(f"minor(mat1): {minor(mat1)}")
+    print(f"minor(mat2): {minor(mat2)}")
+    print(f"minor(mat3): {minor(mat3)}")
+    print(f"minor(mat4): {minor(mat4)}")
+    
     try:
         minor(mat5)
     except Exception as e:
@@ -22,3 +23,4 @@ if __name__ == '__main__':
         minor(mat6)
     except Exception as e:
         print(e)
+  
