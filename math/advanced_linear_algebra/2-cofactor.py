@@ -69,7 +69,6 @@ def determinant(matrix):
 
 def minor(matrix):
     """Function to calculate the determinant"""
-    
     j = 0
     new_mat = []
     for row in matrix:
@@ -107,7 +106,7 @@ def cofactor(matrix):
         else:
             h_mat = minor(matrix)
             new_mat = []
-            for i in range (len(h_mat)):
+            for i in range(len(h_mat)):
                 new_row = []
                 for j in range(len(h_mat[i])):
                     z = (-1) ** (i+j) * h_mat[i][j]
