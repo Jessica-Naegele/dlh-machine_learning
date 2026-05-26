@@ -119,7 +119,7 @@ def adjugate(matrix):
     if size[0] != size[1]:
         raise ValueError("matrix must be a non-empty square matrix")
     elif size == [1, 1]:
-        transpose = ([1])
+        transpose = ([[1]])
     else:
         cf_matrix = cofactor(matrix)
         # print(f"cf_matrix: {cf_matrix}")
