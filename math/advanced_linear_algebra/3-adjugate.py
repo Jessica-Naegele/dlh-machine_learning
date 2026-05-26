@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Function to return the cofactor of a matrix"""
+"""Function to return the cofadjugate of a matrix"""
 
 
 def matrix_shape(matrix):
@@ -90,6 +90,23 @@ def minor(matrix):
 
 def cofactor(matrix):
     """calculates the cofactor of a matrix"""
+    size = matrix_shape(matrix)
+    new_mat = []
+    if size == [1, 1]:
+        new_mat.append([1])
+    else:
+        h_mat = minor(matrix)
+        for i in range(len(h_mat)):
+            new_row = []
+            for j in range(len(h_mat[i])):
+                z = (-1) ** (i+j) * h_mat[i][j]
+                new_row.append(z)
+            new_mat.append(new_row)
+    return new_mat
+
+
+def adjugate(matrix):
+    """calculates the adjugate of a matrix"""
     if is_matrix(matrix) is False:
         raise TypeError("matrix must be a list of lists")
     det = 0
@@ -98,18 +115,19 @@ def cofactor(matrix):
     else:
         is_square(matrix)
         size = matrix_shape(matrix)
-        new_mat = []
-        if size[0] != size[1]:
-            raise ValueError("matrix must be a non-empty square matrix")
-        if size == [1, 1]:
-            new_mat.append([1])
-        else:
-            h_mat = minor(matrix)
-            new_mat = []
-            for i in range(len(h_mat)):
-                new_row = []
-                for j in range(len(h_mat[i])):
-                    z = (-1) ** (i+j) * h_mat[i][j]
-                    new_row.append(z)
-                new_mat.append(new_row)
-        return new_mat
+        # print(f"size: {size}")
+    if size[0] != size[1]:
+        raise ValueError("matrix must be a non-empty square matrix")
+    elif size == [1, 1]:
+        transpose = ([1])
+    else:
+        cf_matrix = cofactor(matrix)
+        # print(f"cf_matrix: {cf_matrix}")
+        transpose = []
+        for i in range(0, size[1]):
+            r = []
+            for row in cf_matrix:
+                r.append(row[i])
+            # print(f"r: {r}")
+            transpose.append(r)
+    return transpose
