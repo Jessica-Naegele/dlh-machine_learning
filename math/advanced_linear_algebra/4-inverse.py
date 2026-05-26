@@ -136,7 +136,7 @@ def adjugate(matrix):
 def scale_matrix(matrix, scale):
     """function for scaling the matrix in recursion"""
     if not isinstance(matrix, list):
-        return matrix * scale
+        return matrix / scale
     else:
         return [scale_matrix(item, scale) for item in matrix]
 
@@ -160,5 +160,4 @@ def inverse(matrix):
         return None
     # multiplicate the adjoint by the reciprocal of determinant
     else:
-        scale = 1 / det
-        return scale_matrix(ad_matrix, scale)
+        return scale_matrix(ad_matrix, det)
