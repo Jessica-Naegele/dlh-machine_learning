@@ -13,6 +13,8 @@ def definiteness(matrix):
         return None
     elif shape[0] != shape[1]:
         return None
+    elif not np.allclose(matrix, matrix.T):
+        return None
     eigvals = np.linalg.eigvalsh(matrix)
     # print(f"eigvals: {eigvals}")
     pos_def = False
