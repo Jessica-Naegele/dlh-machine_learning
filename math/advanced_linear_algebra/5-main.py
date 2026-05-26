@@ -1,13 +1,19 @@
 #!/usr/bin/env python3
 import numpy as np
 
+
+
+
+"""
 mat1 = np.array([[5, 1], [1, 1]])
 mat0 = ([[5, 1], [1, 1]])
 
 print(type(mat1))
 print(type(mat0))
+print(np.linalg.eigvalsh(mat1))
+"""
 
-""" testing first
+
 if __name__ == '__main__':
     definiteness = __import__('5-definiteness').definiteness
     import numpy as np
@@ -33,4 +39,3 @@ if __name__ == '__main__':
     except Exception as e:
         print(e)
 
-"""
