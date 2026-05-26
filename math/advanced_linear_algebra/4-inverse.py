@@ -131,3 +131,34 @@ def adjugate(matrix):
             # print(f"r: {r}")
             transpose.append(r)
     return transpose
+
+
+def scale_matrix(matrix, scale):
+    """function for scaling the matrix in recursion"""
+    if not isinstance(matrix, list):
+        return matrix * scale
+    else:
+        return [scale_matrix(item, scale) for item in matrix]
+
+
+def inverse(matrix):
+    """calculates the inverse of a matrix"""
+    if is_matrix(matrix) is False:
+        raise TypeError("matrix must be a list of lists")
+    det = 0
+    if matrix == [[]] or matrix == []:
+        raise ValueError("matrix must be a non-empty square matrix")
+    else:
+        is_square(matrix)
+        size = matrix_shape(matrix)
+        # print(f"size: {size}")
+    if size[0] != size[1]:
+        raise ValueError("matrix must be a non-empty square matrix")
+    det = determinant(matrix)
+    ad_matrix = adjugate(matrix)
+    if det == 0:
+        return None
+    # multiplicate the adjoint by the reciprocal of determinant
+    else:
+        scale = 1 / det
+        return scale_matrix(ad_matrix, scale)
