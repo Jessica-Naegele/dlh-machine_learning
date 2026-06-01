@@ -9,6 +9,7 @@ def matrix_transpose(matrix):
     while isinstance(current_layer, list):
         size.append(len(current_layer))
         current_layer = current_layer[0]
+    print(f"size: {size}") #helper
     transpose = []
     for i in range(0, size[1]):
         r = []
