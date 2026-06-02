@@ -2,7 +2,7 @@
 """Writing a function that calculates integral of a polynomial"""
 
 
-def poly_derivative(poly, C=0):
+def poly_integral(poly, C=0):
     """function to return a poly derivative"""
     r = []  # result list
 
@@ -14,15 +14,17 @@ def poly_derivative(poly, C=0):
         # is poly in correct format, is poly not NULL
         return None
 
-    if len(poly) == 1:  # check if derivative = 0
-        return [0]
-
     for i in poly:  # check whethr poly is valid
-        if type(i) not in (int, float):
+        if not isinstance(i, int):
             return None
 
-    r = [i * poly[i] for i in range(1, len(poly))]
+    r = r = [int(poly[i] / (i + 1)) if (poly[i] / (i + 1)) % 1 == 0
+             else (poly[i] / (i + 1)) for i in range(0, len(poly))]
 
-    integral = [C].append(r)
-    
-    return Integral
+    integral = [C]
+    integral.extend(r)
+
+    while len(integral) > 1 and integral[-1] == 0:
+        integral.pop()
+
+    return integral
