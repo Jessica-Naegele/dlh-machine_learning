@@ -4,30 +4,21 @@
 
 def poly_derivative(poly):
     """function to return a poly derivative"""
-    l2 = len(poly)  # length
-    print(f"len: {l2}") #helper
+    le = len(poly)  # length
     r = []  # result list
-    
-    if l2 == 1:  # check if derivative = 0
+
+    if le == 1:  # check if derivative = 0
         return [0]
-    
+
     for i in poly:  # check whethr poly is valid
         if type(i) not in (int, float):
             return None
-    
-    h_poly = poly[:-1]
-    l = len(h_poly)
-    print(f"h_poly: {h_poly}") #helper
-    print(f"len: {l}") #helper
 
-    while type(poly) == list:
-        m = l2 - len(h_poly)
-        d = h_poly.pop() * m 
+    h_poly = poly[:]
+
+    for i in range(le):
+        d = h_poly[0] * i
+        h_poly = h_poly[1:]
         r.append(d)
-    
-    print(f"r: {r}") #helper
+    r = r[1:]
     return r
-
-
-
-
