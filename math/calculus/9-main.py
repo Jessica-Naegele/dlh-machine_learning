@@ -11,3 +11,11 @@ print(f"n: {n} - {summation_i_squared(n)}")
       
 n = -5
 print(f"n: {n} - {summation_i_squared(n)}")
+
+
+n = 5.0
+print(f"type(5.0): {type(n)}")
+print(f"n: {n} - {summation_i_squared(n)}")
+
+n = True
+print(f"n: {n} - {summation_i_squared(n)}")
