@@ -7,6 +7,8 @@ def recursion(i, n):
     # Base Case: n and i are equal
     if i == n:
         return n * n
+    elif n < 0:
+        return i * i + recursion(i-1, n)
     else:
         return i * i + recursion(i+1, n)
 
