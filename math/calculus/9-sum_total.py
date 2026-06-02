@@ -11,7 +11,6 @@ def recursion(i, n):
         return i * i + recursion(i+1, n)
 
 
-
 def summation_i_squared(n):
     """Function to calculate summation of i squared"""
     if not isinstance(n, int):
