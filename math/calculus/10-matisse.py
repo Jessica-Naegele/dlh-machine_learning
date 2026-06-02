@@ -17,7 +17,5 @@ def poly_derivative(poly):
         if type(i) not in (int, float):
             return None
 
-    h_poly = poly[:]
-
     r = [i * poly[i] for i in range(1, le)]
     return r
