@@ -2,19 +2,25 @@
 """Writing a function that calculates summation i sqaured"""
 
 
-def recursion(i, n):
-    """recursion for the calculation"""
-    # Base Case: n and i are equal
-    if i == n:
-        return n * n
-    elif n < 0:
-        return i * i + recursion(i-1, n)
-    else:
-        return i * i + recursion(i+1, n)
-
-
 def summation_i_squared(n):
-    """Function to calculate summation of i squared"""
-    if not isinstance(n, int):
+    """Calculates the sum of i squared from 1 to n.
+
+    Args:
+        n (int): The stopping condition.
+
+    Returns:
+        int: The total sum, or None if n is invalid or less than 0.
+    """
+    # Reject booleans (since isinstance(True, int) is True)
+    if type(n) is not int:
         return None
-    return recursion(0, n)
+
+    # Handle negative numbers or 0
+    if n < 0:
+        return None
+    if n == 0:
+        return 0
+
+    # Using the direct mathematical formula instead of recursion
+    # Using integer division // to ensure we return an int type
+    return (n * (n + 1) * (2 * n + 1)) // 6
