@@ -9,7 +9,7 @@ def poly_derivative(poly):
     if not isinstance(poly, list) or not poly:
         # is poly in correct format, is poly not NULL
         return None
-    
+
     if len(poly) == 1:  # check if derivative = 0
         return [0]
 
