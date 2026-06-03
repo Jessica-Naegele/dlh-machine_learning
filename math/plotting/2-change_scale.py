@@ -24,6 +24,6 @@ def change_scale():
     plt.title("Exponential Decay of C-14")
     plt.xlabel("Time (years)")
     plt.ylabel("Fraction Remaining")
-    plt.xlim(0, 28650)
+    plt.gca().autoscale(enable=True, axis='x', tight=True)
     plt.yscale('log')  # log scaling of the y achsis
     plt.show()
