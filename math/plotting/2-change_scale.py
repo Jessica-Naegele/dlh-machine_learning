@@ -22,8 +22,8 @@ def change_scale():
     # your code here
     plt.plot(x, y, color="blue")
     plt.title("Exponential Decay of C-14")
-    plt.xlabel('Time (years)')
-    plt.ylabel('Fraction Remaining')
+    plt.xlabel("Time (years)")
+    plt.ylabel("Fraction Remaining")
     plt.xlim(0, 28650)
     plt.yscale('log')  # log scaling of the y achsis
     plt.show()
