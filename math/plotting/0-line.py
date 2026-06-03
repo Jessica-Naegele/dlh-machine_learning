@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+"""
+Frechheit, wir sollen das Dokument
+verwenden und dann ist es nicht kommentiert. Falle
+"""
 import numpy as np
 import matplotlib.pyplot as plt
 
