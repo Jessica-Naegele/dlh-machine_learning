@@ -10,9 +10,15 @@ def frequency():
     plt.figure(figsize=(6.4, 4.8))
 
     # your code here
-    n, bins, patches = plt.hist(student_grades, 10)
-    for patch in patches:
-        patch.set_edgecolor=('black')
+    bin = np.arange(0, 101, 10) 
+    n, bins, patches = plt.hist(student_grades, bins=bin, edgecolor='black', linewidth=1.2)
+
+        
     plt.xlabel('Grades')
     plt.ylabel('Number of Students')
     plt.title('Project A')
+
+    plt.xlim(0, 100)
+    plt.ylim(0, 30)
+
+    plt.show()
