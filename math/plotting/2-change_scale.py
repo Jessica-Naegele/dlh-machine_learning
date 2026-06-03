@@ -10,6 +10,7 @@ The x-axis should range from 0 to 28650
 import numpy as np
 import matplotlib.pyplot as plt
 
+
 def change_scale():
     """labeling, title, scaling"""
     x = np.arange(0, 28651, 5730)
@@ -23,5 +24,6 @@ def change_scale():
     plt.title("Exponential Decay of C-14")
     plt.xlabel('Time (years)')
     plt.ylabel('Fraction Remaining')
-    plt.xlim(0, 28650)  
+    plt.xlim(0, 28650)
     plt.yscale('log')  # log scaling of the y achsis
+    plt.show()
