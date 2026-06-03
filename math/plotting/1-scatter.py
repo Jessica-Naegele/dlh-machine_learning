@@ -9,8 +9,9 @@ The data should be plotted as magenta points
 import numpy as np
 import matplotlib.pyplot as plt
 
-def scatter():
 
+def scatter():
+    """this is a documentation - I will not be tricked twice"""
     mean = [69, 0]
     cov = [[15, 8], [8, 15]]
     np.random.seed(5)
@@ -19,7 +20,7 @@ def scatter():
     plt.figure(figsize=(6.4, 4.8))
 
     # your code here
-    plt.scatter(x, y, color='magenta') #needs adjustment
+    plt.scatter(x, y, color='magenta')
     plt.title("Men's Height vs Weight")
     plt.xlabel('Height (in)')
     plt.ylabel('Weight (lbs)')
