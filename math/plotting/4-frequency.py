@@ -3,6 +3,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+
 def frequency():
     """Histogram"""
     np.random.seed(5)
@@ -10,10 +11,12 @@ def frequency():
     plt.figure(figsize=(6.4, 4.8))
 
     # your code here
-    bin = np.arange(0, 101, 10) 
-    n, bins, patches = plt.hist(student_grades, bins=bin, edgecolor='black', linewidth=1.2)
+    bin = np.arange(0, 101, 10)
+    n, bins, patches = plt.hist(
+        student_grades, bins=bin, edgecolor='black',
+        linewidth=1.2
+        )
 
-        
     plt.xlabel('Grades')
     plt.ylabel('Number of Students')
     plt.title('Project A')
