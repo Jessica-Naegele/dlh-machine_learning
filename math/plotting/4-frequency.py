@@ -13,8 +13,7 @@ def frequency():
     # your code here
     bin = np.arange(0, 101, 10)
     n, bins, patches = plt.hist(
-        student_grades, bins=bin, edgecolor='black',
-        linewidth=1.2
+        student_grades, bins=bin, edgecolor='black'
         )
 
     plt.xlabel('Grades')
