@@ -15,11 +15,12 @@ def gradient():
     plt.figure(figsize=(6.4, 4.8))
 
     # your code here
-    colors = np.random.rand(100)
-    plt.scatter(x, y, c=colors)
+    scatter = plt.scatter(x, y, c=z, cmap='viridis')
     plt.title("Mountain Elevation")
     plt.xlabel('x coordinate (m)')
     plt.ylabel('y coordinate (m)')
-    plt.zlabel('elevation (m)')  # z gibt es nicht
+    cbar = plt.colorbar(scatter)
+    cbar.set_label("elevation (m)")
+    # plt.zlabel('elevation (m)')  # z gibt es nicht
     # plt.xlim(0, 10)  # limits the x achsis
     plt.show()
