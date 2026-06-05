@@ -37,18 +37,17 @@ def all_in_one():
 
     # your code here
     plt.figure(figsize=(6.4, 4.8))
-    plt.title("All in One")
-
     plt.clf()  # clears anything that might have leaked
 
     # 0-line
     plt.subplot(3, 2, 1)  # let's see how important it is to have sth in the ()
     plt.plot(np.arange(0, 11), y0, color='red')
     plt.xlim(0, 10)
+    plt.yticks(np.arange(0, 1001, 500))
 
     # 1 -scatter
     plt.subplot(3, 2, 2)
-    plt.scatter(x1, y1, color='magenta')
+    plt.scatter(x1, y1, s=5, color='magenta')
     plt.title("Men's Height vs Weight", fontsize='x-small')
     plt.xlabel('Height (in)', fontsize='x-small')
     plt.ylabel('Weight (lbs)', fontsize='x-small')
@@ -70,7 +69,7 @@ def all_in_one():
               fontsize='x-small')
     plt.xlabel('Time (years)', fontsize='x-small')
     plt.ylabel('Fraction Remaining', fontsize='x-small')
-    plt.legend(loc='upper right')
+    plt.legend(loc='upper right', fontsize='x-small')
     plt.xlim(0, 20000)
     plt.ylim(0, 1)
 
@@ -86,7 +85,9 @@ def all_in_one():
     plt.xlim(0, 100)
     plt.ylim(0, 30)
     plt.xticks(bin)
+    plt.yticks(np.arange(0, 31, 10))
 
+    plt.suptitle("All in One")
     plt.tight_layout()  # tightens the subplots
     # show them all
     plt.show()
