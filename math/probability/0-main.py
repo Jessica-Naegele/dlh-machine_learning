@@ -9,3 +9,19 @@ p1 = Poisson(data)
 print('Lambtha:', p1.lambtha)
 
 p2 = Poisson(lambtha=5)
+print('Lambtha:', p2.lambtha)
+
+print("----")
+"""
+p3 = Poisson(data, -5)
+print('Lambtha:', p3.lambtha)
+"""
+"""
+print("---")
+
+p2 = Poisson([],lambtha=5)
+print('Lambtha:', p2.lambtha)
+
+print("----")
+
+"""
