@@ -79,3 +79,28 @@ class Poisson():
             le = len(self._data)
             lambtha = su / le
             self._lambtha = lambtha
+
+    #instance method: pmf - Probability Mass Function
+    def pmf(self, k):
+        """
+        Calculates the value of the PMF for a given number of "successes"
+        k is the number of "successes"
+        If k is not an integer, convert it to an integer
+        If k is out of range, return 0
+        Returns the PMF value for k
+        P(X=k)= (λ^k * e ^(-λ))/k!
+        e = 2.7182818285
+        """
+        e = 2.7182818285
+        if not isinstance(k, int):
+            k = int(k)
+        elif k < 0:
+            k = 0
+        prod_k = 1
+        h_k = k
+        while h_k > 0:
+            prod_k = prod_k * h_k
+            h_k += -1
+        pmf = (self._lambtha**k * e **(-self.lambtha)) / prod_k
+        return pmf
+
