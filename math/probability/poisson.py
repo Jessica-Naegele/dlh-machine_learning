@@ -95,7 +95,7 @@ class Poisson():
         if not isinstance(k, int):
             k = int(k)
         if k < 0:
-            k = 0
+            return 0
         prod_k = 1
         h_k = k
         while h_k > 0:
