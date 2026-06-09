@@ -84,4 +84,4 @@ class Exponential():
         else:
             lam = self._lambtha
             pdf = lam * e ** (-lam * x)
-            return pdf 
+            return pdf
