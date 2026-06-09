@@ -94,7 +94,7 @@ class Poisson():
         e = 2.7182818285
         if not isinstance(k, int):
             k = int(k)
-        elif k < 0:
+        if k < 0:
             k = 0
         prod_k = 1
         h_k = k
