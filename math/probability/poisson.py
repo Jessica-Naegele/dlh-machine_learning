@@ -80,7 +80,7 @@ class Poisson():
             lambtha = su / le
             self._lambtha = lambtha
 
-    #instance method: pmf - Probability Mass Function
+    # instance method: pmf - Probability Mass Function
     def pmf(self, k):
         """
         Calculates the value of the PMF for a given number of "successes"
@@ -101,6 +101,5 @@ class Poisson():
         while h_k > 0:
             prod_k = prod_k * h_k
             h_k += -1
-        pmf = (self._lambtha**k * e **(-self.lambtha)) / prod_k
+        pmf = ((self._lambtha ** k) * (e ** (-self.lambtha))) / prod_k
         return pmf
-
