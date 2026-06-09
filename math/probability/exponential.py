@@ -12,9 +12,8 @@ class Exponential():
         lambtha must be a positive value
         If data is given:
         Calculate the lambtha of data
-        
         """
-    
+
     def __init__(self, data=None, lambtha=1):
         """Initialization of a data and none"""
         self._data = None
@@ -22,14 +21,14 @@ class Exponential():
 
         self.data = data
         self.lambtha = lambtha
-    
+
     # getter lambtha
     @property
     def lambtha(self):
         """gets lambhta as float
         Saves lambtha as a float"""
         return float(self._lambtha)
-    
+
     # getter data
     @property
     def data(self):
@@ -42,7 +41,7 @@ class Exponential():
         """
         If data is not a list, raise a TypeError with the message data must
         be a list
-        If data does not contain at least two data points, raise a ValueError 
+        If data does not contain at least two data points, raise a ValueError
         with the message data must contain multiple values
         """
         if data is not None:
@@ -51,21 +50,20 @@ class Exponential():
             elif len(data) < 2:
                 raise ValueError("data must contain multiple values")
             else:
-                data_self = data
-    
+                self._data = data
+
     # setter lambtha
     @lambtha.setter
     def lambtha(self, lambtha):
-        """lambtha is the expected number of occurences in a given time frame"""
+        """lambtha is the expected number of occurences in a
+        given time frame"""
         if lambtha < 0:
             raise ValueError("lambtha must be a positive value")
-        elif self._data is None: 
+        elif self._data is None:
             self._lambtha = lambtha
         else:
-            # calculate lambda 
+            # calculate lambda
             # calculate mean of data
             mean = sum(self._data) / len(self._data)
-            print(f"sum(data): {sum(self._data)}") #helper
-            print(f"len(data): {len(self._data)}") #helper
             # 1/ mean = lambda
             self._lambtha = 1 / mean
