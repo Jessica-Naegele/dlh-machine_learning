@@ -19,13 +19,16 @@ class Poisson():
 
     def __init__(self, data=None, lambtha=1):
         """initialisation with default values"""
+        self._data = None
+        self._lambtha = 1.0
+        
         self.data = data
         self.lambtha = lambtha
 
     # getter data
     @property
     def data(self):
-        return self.data
+        return self._data
 
     # setter: data is a list of the data to be used to estimate the distribution
     @data.setter
@@ -42,12 +45,13 @@ class Poisson():
             elif len(data) < 2:
                 raise ValueError("data must contain multiple values")
             else: 
-                self.data = data
+                self._data = data
     
     # getter lambtha
     @property
     def lambtha(self):
-        return float(self.lambtha)
+        lambtha = self._lambtha
+        return lambtha
 
     # setter lambtha
     @lambtha.setter
@@ -63,14 +67,13 @@ class Poisson():
         If lambtha is not a positive value or equals to 0, raise a ValueError 
         with the message lambtha must be a positive value
         """
-        if self.lambtha <= 0:
+        if lambtha <= 0:
             raise ValueError("lambtha must be a positive value")
-        elif self.data == []:
-            return self.lambtha
+        elif self._data is None:
+            return lambtha
         else:
-            # Lambda = The average number of events per interval (rate parameter)
-
-
-
-
-        
+            # Lambtha : sample arithmetic mean.
+            s = sum(self._data)
+            l = len(self._data)
+            lambtha = s / l
+            self._lambtha = lambtha
