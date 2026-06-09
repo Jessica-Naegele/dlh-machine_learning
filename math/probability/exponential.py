@@ -67,3 +67,21 @@ class Exponential():
             mean = sum(self._data) / len(self._data)
             # 1/ mean = lambda
             self._lambtha = 1 / mean
+
+    # instance method pdf - probability density function
+    def pdf(self, x):
+        """
+        Calculates the value of the PDF for a given time period
+        x is the time period
+        Returns the PDF value for x
+        If x is out of range, return 0
+        x >= 0 λ* e ^(-λx)
+        x < 0: 0
+        """
+        e = 2.7182818285
+        if x < 0:
+            return 0
+        else:
+            lam = self._lambtha
+            pdf = lam * e ** (-lam * x)
+            return pdf 
