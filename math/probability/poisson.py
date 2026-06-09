@@ -121,17 +121,11 @@ class Poisson():
         if k < 0:
             return 0
         h_cdf = 0
-        for i in range(k):
+        for i in range(k+1):
             prod_k = 1
             h_k = i
             while h_k > 0:
                 prod_k = prod_k * h_k
                 h_k += -1
-            print(f"i: {i}") #helper
-            print(f"k: {k}") #helper
-            print(f"prod_k: {prod_k}") #helper
             h_cdf += (e ** (-lam) * lam ** i) / prod_k
-            print(f"h_cdf: {h_cdf}") #helper
         return h_cdf
-            
-            

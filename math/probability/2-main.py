@@ -9,4 +9,4 @@ p1 = Poisson(data)
 print('F(9):', p1.cdf(9))
 
 p2 = Poisson(lambtha=5)
-print('F(9):', p2.cdf(9))
+print('F(9):', p2.cdf(9.2))
