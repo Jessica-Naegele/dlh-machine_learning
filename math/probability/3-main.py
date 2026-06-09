@@ -11,3 +11,9 @@ print('Lambtha:', e1.lambtha)
 
 e2 = Exponential(lambtha=2)
 print('Lambtha:', e2.lambtha)
+
+print("---")
+
+
+e2 = Exponential(lambtha=2.3)
+print('Lambtha:', e2.lambtha)

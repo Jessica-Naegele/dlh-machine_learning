@@ -57,7 +57,7 @@ class Exponential():
     def lambtha(self, lambtha):
         """lambtha is the expected number of occurences in a
         given time frame"""
-        if lambtha < 0:
+        if lambtha <= 0:
             raise ValueError("lambtha must be a positive value")
         elif self._data is None:
             self._lambtha = lambtha
