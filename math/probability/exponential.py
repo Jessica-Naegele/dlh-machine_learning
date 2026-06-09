@@ -59,11 +59,13 @@ class Exponential():
         """lambtha is the expected number of occurences in a given time frame"""
         if lambtha < 0:
             raise ValueError("lambtha must be a positive value")
-        elif self._data is None:
+        elif self._data is None: 
             self._lambtha = lambtha
         else:
             # calculate lambda 
             # calculate mean of data
-            mean = sum(data) / len(data)
+            mean = sum(self._data) / len(self._data)
+            print(f"sum(data): {sum(self._data)}") #helper
+            print(f"len(data): {len(self._data)}") #helper
             # 1/ mean = lambda
-            lambtha = 1 / mean
+            self._lambtha = 1 / mean
