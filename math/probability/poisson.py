@@ -103,3 +103,35 @@ class Poisson():
             h_k += -1
         pmf = ((self._lambtha ** k) * (e ** (-self.lambtha))) / prod_k
         return pmf
+
+    # instance method cdf - cumulative distribution function
+    def cdf(self, k):
+        """
+        Calculates the value of the CDF  for a given number of "successes"
+        k is the number of "successes"
+        If k is not an integer, convert it to an integer
+        If k is out of range, return 0
+        Returns the CDF value for k
+        e^(-λ) sum λ^k/k!
+        """
+        e = 2.7182818285
+        lam = self._lambtha
+        if not isinstance(k, int):
+            k = int(k)
+        if k < 0:
+            return 0
+        h_cdf = 0
+        for i in range(k):
+            prod_k = 1
+            h_k = i
+            while h_k > 0:
+                prod_k = prod_k * h_k
+                h_k += -1
+            print(f"i: {i}") #helper
+            print(f"k: {k}") #helper
+            print(f"prod_k: {prod_k}") #helper
+            h_cdf += (e ** (-lam) * lam ** i) / prod_k
+            print(f"h_cdf: {h_cdf}") #helper
+        return h_cdf
+            
+            
