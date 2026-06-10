@@ -82,11 +82,11 @@ class Normal:
         raise a ValueError with the message stddev
         must be a positive value
         """
+        if stddev < 0:
+            raise ValueError("stddev must be a positive value")
         if self._data is None:
             self._stddev = float(stddev)
         else:
-            if stddev < 0:
-                raise ValueError("stddev must be a positive value")
             # calculate the variance
             mn = self._mean
             h_var = 0

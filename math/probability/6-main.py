@@ -10,3 +10,16 @@ print('Mean:', n1.mean, ', Stddev:', n1.stddev)
 
 n2 = Normal(mean=70, stddev=10)
 print('Mean:', n2.mean, ', Stddev:', n2.stddev)
+
+
+print("---")
+
+n2 = Normal(mean=70, stddev=-10)
+print('Mean:', n2.mean, ', Stddev:', n2.stddev)
+
+"""
+print("----")
+
+n2 = Normal(mean=70, stddev=0)
+print('Mean:', n2.mean, ', Stddev:', n2.stddev)
+"""
