@@ -70,7 +70,7 @@ class Normal:
         Use the given mean and stddev
         """
         if self._data is None:
-            self._mean = mean
+            self._mean = float(mean)
         else:
             self._mean = float(sum(self.data) / len(self.data))
 
@@ -83,7 +83,7 @@ class Normal:
         must be a positive value
         """
         if self._data is None:
-            self._stddev = stddev
+            self._stddev = float(stddev)
         else:
             if stddev < 0:
                 raise ValueError("stddev must be a positive value")
