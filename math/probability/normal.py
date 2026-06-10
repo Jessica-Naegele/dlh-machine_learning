@@ -118,3 +118,22 @@ class Normal:
         mn = self._mean
         sd = self._stddev
         return mn + (z * sd)
+
+    # instance method pdf - probability density function
+    def pdf(self, x):
+        """calculates pdf
+        pdf = (1 / (sigma sqr(2*pi)) ) * e ** -1/2 ((x-mu)/sigma)**2
+        """
+        e = 2.7182818285
+        pi = 3.1415926536
+        sd = self._stddev
+        mn = self._mean
+
+        if x is None:
+            x = self.x_value()
+
+        pdf = (
+            (1 / (sd * (2 * pi) ** 0.5))
+            * e ** (-0.5 * ((x - mn) / sd) ** 2)
+            )
+        return pdf
