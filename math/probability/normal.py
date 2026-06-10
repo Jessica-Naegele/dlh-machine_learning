@@ -94,3 +94,27 @@ class Normal:
                 h_var += (i - mn) ** 2  # sum of difference btw data and mn
             var = h_var / len(self._data)
             self._stddev = var ** 0.5
+
+    # instance methode z_score
+    def z_score(self, x):
+        """calcualtes z-score with given x
+        - x = value from distribution
+        - μ = mean
+        - sigma = standard deviation
+        z = (x - μ)  / sigma
+        """
+        mn = self._mean
+        sd = self._stddev
+        return (x - mn) / sd
+
+    # instance method x_value
+    def x_value(self, z):
+        """calculates x-value with given z
+        - x = value from distribution
+        - μ = mean
+        - sigma = standard deviation
+        x = μ + (z * sigma)
+        """
+        mn = self._mean
+        sd = self._stddev
+        return mn + (z * sd)
