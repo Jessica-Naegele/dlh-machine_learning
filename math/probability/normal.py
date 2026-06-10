@@ -5,15 +5,6 @@
 class Normal:
     """
     Class representing a normal distribution
-    Sets the instance attributes mean and stddev
-    Saves mean and stddev as floats
-    If data is not given (i.e. None (be careful: not data has not the same result as data is None))
-    Use the given mean and stddev
-    If stddev is not a positive value or equals to 0, raise a ValueError with the message stddev must be a positive value
-    If data is given:
-    Calculate the mean and standard deviation of data
-    If data is not a list, raise a TypeError with the message data must be a list
-    If data does not contain at least two data points, raise a ValueError with the message data must contain multiple values
     """
 
     def __init__(self, data=None, mean=0., stddev=1):
@@ -42,7 +33,7 @@ class Normal:
     def mean(self):
         """mean of the distribution"""
         return self._mean
-    
+
     # getter stddev
     @property
     def stddev(self):
@@ -66,7 +57,7 @@ class Normal:
             elif len(data) < 2:
                 raise ValueError("data must contain multiple values")
             else:
-                self._data = data 
+                self._data = data
 
     # mean setter
     @mean.setter
@@ -74,7 +65,8 @@ class Normal:
         """
         Saves mean and stddev as floats
         Calculate the mean and standard deviation of data
-        If data is not given (i.e. None (be careful: not data has not the same result as data is None))
+        If data is not given (i.e. None (be careful: not data
+        has not the same result as data is None))
         Use the given mean and stddev
         """
         if self._data is None:
@@ -86,8 +78,8 @@ class Normal:
     @stddev.setter
     def stddev(self, stddev):
         """
-        If stddev is not a positive value or equals to 0, 
-        raise a ValueError with the message stddev 
+        If stddev is not a positive value or equals to 0,
+        raise a ValueError with the message stddev
         must be a positive value
         """
         if self._data is None:
