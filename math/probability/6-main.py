@@ -14,7 +14,7 @@ print('Mean:', n2.mean, ', Stddev:', n2.stddev)
 
 print("---")
 
-n2 = Normal(mean=70, stddev=-10)
+n2 = Normal(mean=70, stddev=0)
 print('Mean:', n2.mean, ', Stddev:', n2.stddev)
 
 """
