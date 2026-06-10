@@ -137,3 +137,25 @@ class Normal:
             * e ** (-0.5 * ((x - mn) / sd) ** 2)
             )
         return pdf
+
+    # instance method cdf - cumulative distribution function
+    def cdf(self, x):
+        """
+        calculation cdf
+        erf.gif
+        cdf = 1/ 2 * [ 1 + erf ]
+        """
+        if x is None:
+            x = self.x_value()
+        pi = 3.1415926536
+        sd = self._stddev
+        mn = self._mean
+
+        # x in erf is not x but v (normalized value)
+        v = (x - mn) / (sd * (2 ** 0.5))
+
+        erf = (
+            (2 / pi ** 0.5) * (v - (v ** 3) / 3 + (v ** 5) / 10
+                               - (v ** 7) / 42 + (v ** 9) / 216)
+                               )
+        return 1 / 2 * (1 + erf)
