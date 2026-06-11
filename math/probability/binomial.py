@@ -75,3 +75,29 @@ class Binomial:
         if n <= 0:
             raise ValueError("n must be a positive value")
         self._n = int(n)
+
+    # instant methode pmf - probability mass function
+    def pmf(self, k):
+        """Calculates the value for agiven number of success
+        k = number of successes
+        pmf = n! /(x!(n-x)!) * p ^x (1-p)^(n-x)
+        """
+        n = self._n
+        p = self._p
+        if not isinstance(k, int):
+            k = int(k)
+        if k <= 0:
+            return 0
+        else:
+            prod_x = 1
+            for i in range(1, n + 1):
+                prod_x = prod_x * i
+            prod_k = 1
+            for j in range(1, k + 1):
+                prod_k = prod_k * j
+            prod_diff = 1
+            for m in range(1, (n - k) + 1):
+                prod_diff = prod_diff * m
+
+            pmf = (prod_x / (prod_k*prod_diff)) * p ** k * (1 - p) ** (n - k)
+            return pmf
