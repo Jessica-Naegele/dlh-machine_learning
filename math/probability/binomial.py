@@ -101,3 +101,18 @@ class Binomial:
 
             pmf = (prod_x / (prod_k*prod_diff)) * p ** k * (1 - p) ** (n - k)
             return pmf
+
+    # instance method cumulative distribution function
+    def cdf(self, k):
+        """calculates the values of CDF
+        k = number of successes
+        returns CDF value
+        use the pmf method"""
+        n = self._n
+        if not isinstance(k, int):
+            k = int(k)
+        if k < 0 or k > n:
+            return 0
+        else:
+            cdf = sum(self.pmf(i) for i in range(0, k + 1))
+            return cdf
