@@ -60,7 +60,7 @@ class Binomial:
         """
         d = self._data
         if p < 0 or p > 1:
-            raise ValueError("p must be a greater than 0 and less than 1")
+            raise ValueError("p must be greater than 0 and less than 1")
         self._p = float(p)
 
     # setter n
