@@ -10,3 +10,8 @@ print('P(30):', b1.pmf(30))
 
 b2 = Binomial(n=50, p=0.6)
 print('P(30):', b2.pmf(30))
+
+
+b2 = Binomial(n=50, p=0.6)
+print('P(30):', b2.pmf(0))
+

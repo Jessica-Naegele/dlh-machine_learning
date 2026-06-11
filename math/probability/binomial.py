@@ -86,7 +86,7 @@ class Binomial:
         p = self._p
         if not isinstance(k, int):
             k = int(k)
-        if k <= 0:
+        if k < 0 or k > n:
             return 0
         else:
             prod_x = 1
