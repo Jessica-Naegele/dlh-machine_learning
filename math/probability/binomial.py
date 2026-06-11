@@ -5,7 +5,7 @@
 class Binomial:
     """class representing a binomial distribution
     Class contructor def __init__(self, data=None, n=1, p=0.5):
-    data is a list of the data to be used to estimate the 
+    data is a list of the data to be used to estimate the
     distribution
     n is the number of Bernoulli trials
     p is the probability of a "success"
@@ -27,14 +27,14 @@ class Binomial:
     If data is not a list, raise a TypeError with the message data must
     be a list
     If data does not contain at least two data points, raise a ValueError
-    with the message data must contain multiple values    
+    with the message data must contain multiple values
     """
 
     def __init__(self, data=None, n=1, p=0.5):
         """initializing binomial distribution"""
         self._data = None
         self._n = 1  # int
-        self._p = 0.5  #float
+        self._p = 0.5  # float
 
         if data is not None:
             self.data = data
@@ -91,7 +91,7 @@ class Binomial:
             raise ValueError("p must be a greater than 0 and less than 1")
         self._p = float(p)
 
-    # setter n 
+    # setter n
     @n.setter
     def n(self, n):
         """integer
