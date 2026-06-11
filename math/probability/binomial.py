@@ -59,7 +59,7 @@ class Binomial:
         p = 1 - sigma^2/mean
         """
         d = self._data
-        if p <= 0 or p > 1:
+        if p <= 0 or p >= 1:
             raise ValueError("p must be greater than 0 and less than 1")
         self._p = float(p)
 

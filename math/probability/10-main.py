@@ -13,5 +13,5 @@ b2 = Binomial(n=50, p=0.6)
 print('n:', b2.n, "p:", b2.p)
 
 
-b2 = Binomial(n=50, p=0)
+b2 = Binomial(n=50, p=1)
 print('n:', b2.n, "p:", b2.p)
