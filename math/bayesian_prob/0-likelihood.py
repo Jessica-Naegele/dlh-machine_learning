@@ -8,6 +8,7 @@ import numpy as np
 
 
 def prod(z):
+    """this is documented"""
     t = 1
     for i in range(1, z+1):
         t *= i
