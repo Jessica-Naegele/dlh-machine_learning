@@ -72,7 +72,7 @@ class Normal:
         if self._data is None:
             self._mean = float(mean)
         else:
-            self._mean = float(sum(self.data) / len(self.data))
+            self._mean = float(sum(self._data) / len(self._data))
 
     # stddev setter
     @stddev.setter
