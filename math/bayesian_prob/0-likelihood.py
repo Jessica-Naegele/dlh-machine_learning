@@ -33,7 +33,7 @@ def likelihood(x, n, P):
             )
     if x > n:
         raise ValueError("x cannot be greater than n")
-    if not isinstance(P, np.ndarray):
+    if not isinstance(P, np.ndarray) or P.ndim != 1:
         raise TypeError("P must be a 1D numpy.ndarray")
     for i in P:
         if (i < 0 or i > 1):
