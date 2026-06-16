@@ -74,10 +74,10 @@ def intersection(x, n, P, Pr):
         raise ValueError(
             f"All values in P must be in the range [0, 1]"
             )
-    prf = list(filter(lambda x: x < 0 or x > 1, P))
+    prf = list(filter(lambda x: x < 0 or x > 1, Pr))
     if len(prf) > 0:
         raise ValueError(
-            f"All values in P must be in the range [0, 1]"
+            f"All values in Pr must be in the range [0, 1]"
             )
     if not np.isclose(np.sum(Pr), 1):
         raise ValueError("Pr must sum to 1")    # ----
