@@ -67,14 +67,14 @@ def intersection(x, n, P, Pr):
     if not isinstance(P, np.ndarray) or P.ndim != 1:
         raise TypeError("P must be a 1D numpy.ndarray")
     if not isinstance(Pr, np.ndarray) or P.shape != Pr.shape:
-        raise TypeError("Pr must be a numpy.ndarray with the same shpae as P")
+        raise TypeError("Pr must be a numpy.ndarray with the same shape as P")
     # needs to be adjusted with a filter
-    pf = list(filter(lambda x: x < 0 and x > 1, P))
+    pf = list(filter(lambda x: x < 0 or x > 1, P))
     if len(pf) > 0:
         raise ValueError(
             f"All values in {pf} must be in the range [0, 1]"
             )
-    prf = list(filter(lambda x: x < 0 and x > 1, P))
+    prf = list(filter(lambda x: x < 0 or x > 1, P))
     if len(prf) > 0:
         raise ValueError(
             f"All values in {prf} must be in the range [0, 1]"
