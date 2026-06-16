@@ -56,6 +56,7 @@ def intersection(x, n, P, Pr):
     inter = np.multiply(Pr, ll)
     return inter
 
+
 def marginal(x, n, P, Pr):
     """
     function calculating the marginal probability
