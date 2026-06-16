@@ -98,7 +98,8 @@ def posterior(x, n, P, Pr):
         raise ValueError("Pr must sum to 1")    # ----
     # Baysian probability - posterior probability
     # P(H|E) = P(E|H)*P(H) / P(E)
-    # Posterior = Likelihood * Prior Probability / Evidence (Marginal Likelihood)
+    # Posterior = Likelihood * Prior Probability / Evidence
+    # (Marginal Likelihood) = evidence
     ll = likelihood(x, n, P)
     marginal_likelihood = marginal(x, n, P, Pr)
     h_post = np.multiply(ll, Pr)
