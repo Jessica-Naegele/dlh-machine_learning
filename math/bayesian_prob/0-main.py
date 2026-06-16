@@ -20,9 +20,10 @@ if __name__ == '__main__':
 
     print(likelihood(26, 0, P))
     """
-    
+    """
     print("--- negative 0")
 
     print(likelihood(26, 'test', P))
 
 
+"""
