@@ -40,14 +40,16 @@ def likelihood(x, n, P):
     # binom formula (n! / (x! (n-x)!) * p ** x * (1-p) ** (n-x))
     combination_factor = faculty(n) / (faculty(x) * (faculty(n-x)))
     Pp = np.array(list(map(
-        lambda v: combination_factor * (v ** x) * ((1 - v) ** (n - x)), 
+        lambda v: combination_factor * (v ** x) * ((1 - v) ** (n - x)),
         P
         )))
     return Pp
 
+
 def intersection(x, n, P, Pr):
     """
-    Function to calculate intersection of obtaining this data with various hypothetical probabilities
+    Function to calculate intersection of obtaining this data with
+    various hypothetical probabilities
     x = number of patients with severe side effects
     n = total number of patients obersverd
     P = 1D numpy.ndarray - with various hyptohetical probabilities
@@ -66,7 +68,7 @@ def intersection(x, n, P, Pr):
         raise TypeError("P must be a 1D numpy.ndarray")
     if not isinstance(Pr, np.ndarray) or P.shape != Pr.shape:
         raise TypeError("Pr must be a numpy.ndarray with the same shpae as P")
-     # needs to be adjusted with a filter
+    # needs to be adjusted with a filter
     pf = list(filter(lambda x: x < 0 and x > 1, P))
     if len(pf) > 0:
         raise ValueError(
@@ -78,14 +80,7 @@ def intersection(x, n, P, Pr):
             f"All values in {prf} must be in the range [0, 1]"
             )
     if not np.isclose(np.sum(Pr), 1):
-        raise ValueError("Pr must sum to 1")
-    
-
-    # ----
-    # STILL LIKELIHOOD CODE
-    # ---
-    
-    # actual code
+        raise ValueError("Pr must sum to 1")    # ----
     # Intersection = Likelihood * Prior
     ll = likelihood(x, n, P)
     inter = np.multiply(Pr, ll)
