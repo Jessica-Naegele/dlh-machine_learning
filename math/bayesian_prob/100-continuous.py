@@ -3,7 +3,7 @@
 calculating the marginal probability
 """
 
-import scipy as sc
+from scipy import special
 
 
 def posterior(x, n, p1, p2):
@@ -39,7 +39,7 @@ def posterior(x, n, p1, p2):
     # p follows uniform distritubion
     # uniform prior means aphla = beta = 1
     area = (
-        sc.special.betainc(x + 1, n - x + 1, p2)
-        - sc.special.betainc(x + 1, n - x + 1, p1)
+        special.betainc(x + 1, n - x + 1, p2)
+        - special.betainc(x + 1, n - x + 1, p1)
     )
     return area
