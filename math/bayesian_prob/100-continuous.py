@@ -70,7 +70,7 @@ def marginal(x, n, P, Pr):
 def posterior(x, n, p1, p2):
     """
     function calculating the posterior -> aka the baysian probability
-    x number of patients with side effect 
+    x number of patients with side effect
     n total number of patients observed
     p1  is lower bound of the range
     p2 is the upper bound on the range
@@ -92,14 +92,15 @@ def posterior(x, n, p1, p2):
     if p2 <= p1:
         raise ValueError("p2 must be greater than p1")
     # needs to be adjusted with a filter
-    
     # Baysian probability - posterior probability
     # P(H|E) = P(E|H)*P(H) / P(E)
     # Posterior = Likelihood * Prior Probability / Evidence
     # (Marginal Likelihood) = evidence
     # return: posterior probability p within range [p1, p2] given x and n
     # p follows uniform distritubion
-    # uniform prior means aphla = beta = 1 
-    # 
-    area = sc.special.betainc(x + 1, n - x + 1, p2) - sc.special.betainc(x + 1, n - x + 1, p1)
+    # uniform prior means aphla = beta = 1
+    area = (
+        sc.special.betainc(x + 1, n - x + 1, p2)
+        - sc.special.betainc(x + 1, n - x + 1, p1)
+    )
     return area
