@@ -12,14 +12,12 @@ def mean_cov(X):
     """
     # if X is not a 2D numpy.ndarray raise Typerror
     if not isinstance(X, np.ndarray) or len(np.shape(X)) != 2:
-        print(type(X))
-        print(len(X))
         raise TypeError("X must be a 2D numpy.ndarray")
     n = X.shape[0]
     d = X.shape[1]
 
     # print(f"n: {n}")  # helper
-    # print(f"d: {d}")  # helper 
+    # print(f"d: {d}")  # helper
 
     # if n is less than 2
     if n < 2:

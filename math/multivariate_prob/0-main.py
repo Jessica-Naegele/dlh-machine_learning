@@ -11,3 +11,31 @@ if __name__ == '__main__':
     mean, cov = mean_cov(X)
     print(mean)
     print(cov)
+
+    """
+    print("____")
+    X = np.ndarray([0,2,3])
+    print(np.shape(X))
+    print(type(X))
+    mean, cov = mean_cov(X)
+    print(mean)
+    print(cov)
+    """
+
+    print("____")
+    X = np.ndarray([[0,2,3], [1,2,3]])
+    print(np.shape(X))
+    print(type(X))
+    mean, cov = mean_cov(X)
+    print(mean)
+    print(cov)
+
+
+    
+    print("____")
+    X = np.ndarray([[0,2,3], [1,2,3], [4,5,6]])
+    print(np.shape(X))
+    print(type(X))
+    mean, cov = mean_cov(X)
+    print(mean)
+    print(cov)
