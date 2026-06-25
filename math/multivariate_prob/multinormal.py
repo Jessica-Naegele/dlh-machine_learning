@@ -33,3 +33,34 @@ class MultiNormal():
             (np.matmul(DataC, np.matrix.transpose(DataC)))
             / (data.shape[1] - 1)
         )
+
+    def pdf(self, x):
+        """public instance method to calculate PDF at a data point
+        x = numpy ndarray (d, 1) containing data point whose PDF should be calculated
+        d = number of dimenions of this Multnomial instance
+        """
+        # check x
+        # print(f"x: {x}") #helper
+        # print(f"shape(x): {x.shape}") #helper
+        if not isinstance(x, np.ndarray):
+            raise TypeError("x must be a numpy.ndarray")
+        if len(x.shape) != 2 or x.shape[1] != 1:
+            raise ValueError("x must have the shape ({d}, 1)")
+        d = x.shape[0]
+        n = x.shape[1]
+        # print(f"d: {d}, n: {n}") #helper
+        cov_x = self.cov
+        mean_x = self.mean
+        # print(f"cov: {cov_x}")
+        # print(f"mean: {mean_x}")
+        # calculate pdf
+        # f(x) = sqrt(1/(2pi)**dimenion * determinante(cov))
+        # * (-1/2 * dotprod (x-mean *inverse(cov)* diff))
+        dif = x - mean_x
+        # print(f"dif: {dif}") #helper
+        # print(f"dif.shape {dif.shape}") #helüer
+        norm = 1.0 / (
+            np.sqrt((2 * np.pi) ** d * np.linalg.det(cov_x))
+        )
+        exp = np.exp(-0.5 * np.dot(np.dot(dif.T, np.linalg.inv(cov_x)), dif).item())
+        return norm * exp
