@@ -36,7 +36,8 @@ class MultiNormal():
 
     def pdf(self, x):
         """public instance method to calculate PDF at a data point
-        x = numpy ndarray (d, 1) containing data point whose PDF should be calculated
+        x = numpy ndarray (d, 1) containing data point whose PDF
+        should be calculated
         d = number of dimenions of this Multnomial instance
         """
         # check x
@@ -62,5 +63,8 @@ class MultiNormal():
         norm = 1.0 / (
             np.sqrt((2 * np.pi) ** d * np.linalg.det(cov_x))
         )
-        exp = np.exp(-0.5 * np.dot(np.dot(dif.T, np.linalg.inv(cov_x)), dif).item())
+        exp = (
+            np.exp(-0.5 * np.dot
+                   (np.dot(dif.T, np.linalg.inv(cov_x)), dif).item()
+                   ))
         return norm * exp
