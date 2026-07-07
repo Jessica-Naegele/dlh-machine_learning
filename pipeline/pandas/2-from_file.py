@@ -7,5 +7,5 @@ import pandas as pd
 def from_file(filename, delimiter):
     """function to upload data from a file as a pd.DataFrame"""
 
-    df = pd.read_csv(filename, sep=delimiter)
+    df = pd.read_csv(filename, sep=delimiter, on_bad_lines='skip')
     return df
