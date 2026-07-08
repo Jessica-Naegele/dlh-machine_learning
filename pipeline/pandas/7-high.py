@@ -3,4 +3,5 @@
 
 
 def high(df):
+    """I forgot to document this -.-"""
     return df.sort_values(by="High", ascending=False)
