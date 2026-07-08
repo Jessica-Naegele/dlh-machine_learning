@@ -8,7 +8,7 @@ def fill(df):
     xFills missing values in the Close column with the previous rows value.
     xFills missing values in the High, Low, and Open columns with the
     xcorresponding Close value in the same row.
-    Sets missing values in Volume_(BTC) and Volume_(Currency) to 0.
+    xSets missing values in Volume_(BTC) and Volume_(Currency) to 0.
     Returns: the modified pd.DataFrame.
     """
     df_new = df.drop(columns="Weighted_Price")
@@ -20,4 +20,3 @@ def fill(df):
     df_new['Volume_(BTC)'] = df_new['Volume_(BTC)'].fillna(value=0)
     df_new['Volume_(Currency)'] = df_new['Volume_(Currency)'].fillna(value=0)
     return df_new
-
