@@ -2,6 +2,7 @@
 """concatinating two dataframes"""
 
 import pandas as pd
+index = __import__('10-index').index
 
 
 def concat(df1, df2):
@@ -12,10 +13,8 @@ def concat(df1, df2):
     Concatenates the selected rows from df2 to the top of df1 (coinbase).
     Adds keys to the concatenated data, labeling the rows from df2 as
     bitstamp and the rows from df1 as coinbase.
-    x You should use index = __import__('10-index').index
     Returns the concatenated pd.DataFrame.
     """
-    index = __import__('10-index').index
     df1_in = index(df1)
     df2_in = index(df2)
     df2_inq = df2_in.loc[:1417411920]
