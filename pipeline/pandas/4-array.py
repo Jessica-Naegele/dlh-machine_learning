@@ -2,8 +2,6 @@
 """function that selects last 10 rows and ocnverst the selected
 values in a numpy value"""
 
-import pandas as pd
-
 
 def array(df):
     """function
