@@ -15,7 +15,8 @@ xIndex the data frame on Date
 xMissing values in Close should be set to the previous row value
 xMissing values in High, Low, Open should be set to the same row's Close value
 xMissing values in Volume_(BTC) and Volume_(Currency) should be set to 0
-Plot the data from 2017 and beyond at daily intervals and group the values of the same day such that:
+Plot the data from 2017 and beyond at daily intervals and group the
+values of the same day such that:
 High: max
 Low: min
 Open: mean
@@ -35,19 +36,23 @@ df['Date'] = pd.to_datetime(df['Date'], unit='s')
 
 # index hte dataframe on Date
 df = df.set_index('Date')
+df = df.sort_index()
 
 # fill missing close values with previous rows
 df['Close'] = df['Close'].ffill()
 
 # fill missing HIgh, Low, Open with Close values
-cols_to_fill = ["High", "Low", "Open"]
-df[cols_to_fill] = df[cols_to_fill].T.fillna(df["Close"]).T
+for col in ["High", "Low", "Open"]:
+    df[col] = df[col].fillna(df["Close"])
 
 # Set missing Volume values to 0
 df = df.fillna(value={'Volume_(BTC)': 0, 'Volume_(Currency)': 0})
 
+# print(df.tail(10))
+
+
 # filter for 2017, resample & aggregate
-df_transformed = df.loc['2017'].resample('D').agg({
+df_transformed = df.loc['2017':].resample('D').agg({
     'High': 'max',
     'Low': 'min',
     'Open': 'mean',
@@ -55,6 +60,8 @@ df_transformed = df.loc['2017'].resample('D').agg({
     'Volume_(BTC)': 'sum',
     'Volume_(Currency)': 'sum'
 })
+
+# print(df_transformed)
 
 # Plotting
 df_transformed.plot()
