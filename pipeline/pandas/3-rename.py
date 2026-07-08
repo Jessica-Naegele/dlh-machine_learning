@@ -10,6 +10,6 @@ def rename(df):
     only show datetime and close"""
     df_rename = df.rename(columns={"Timestamp": "Datetime"})
     # rename the column
-    df_rename['Datetime'] = pd.to_datetime(df_rename['Datetime'])
+    df_rename['Datetime'] = pd.to_datetime(df_rename['Datetime'], unit='s')
     # datetime for Datetime
     return df_rename[['Datetime', "Close"]]
