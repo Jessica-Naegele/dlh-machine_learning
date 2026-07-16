@@ -35,12 +35,14 @@ if __name__ == '__main__':
         rocket_json = r_rocket.json()
         rocket_name = rocket_json.get('name')
 
-        # decode launchpad 
+        # decode launchpad
         lp_url = "https://api.spacexdata.com/v4/launchpads"
         r_lp = requests.get(lp_url)
         lp_json = r_lp.json()
         lp_name = lp_json.get('name')
         lp_locality = lp_json.get('locality')
 
-        # <launch name> (<date>) <rocket name> - <launchpad name> (<launchpad locality>)
-        print(f"<{launch_name}> (<{launch_date}>) <{rocket_name}> - <{lp_name}> (<{lp_locality}>)")
+        # <launch name> (<date>) <rocket name> -
+        # <launchpad name> (<launchpad locality>)
+        print(f"{launch_name} ({launch_date}) "
+              "{rocket_name} - {lp_name} ({lp_locality})")
