@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """ TASK 0
-method returning list of ships 
+method returning list of ships
 """
 
 import requests
@@ -8,7 +8,7 @@ import requests
 
 def availableShips(passengerCount):
     """
-    method returning list of ships 
+    method returning list of ships
     attr:
     - given number of passengers which needs to be hold
     """
@@ -16,7 +16,7 @@ def availableShips(passengerCount):
     ships = []
 
     with requests.Session() as s:
-        
+
         while url:
             r = requests.get(url).json()
             for ship in r.get('results', []):
@@ -32,5 +32,4 @@ def availableShips(passengerCount):
             next = r.get('next')
             url = next
         # print(f"next:  {r.get('next')}")
-    
     return ships
