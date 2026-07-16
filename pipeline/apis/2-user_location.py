@@ -13,7 +13,7 @@ if __name__ == '__main__':
     # start request
     with requests.get(url) as r:
         if r.status_code == 403:
-            ratelimit = int(response.headers.get('X-Ratelimit-Reset', 0))
+            ratelimit = int(r.headers.get('X-Ratelimit-Reset', 0))
             current_timestamp = int(time.time())
             x = int(round((ratelimit - current_timestamp) / 60))
             print("reset in {x} min")
