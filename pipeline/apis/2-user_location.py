@@ -5,6 +5,7 @@ writing a script that prints location of a specific user
 
 import requests
 from sys import argv
+import time
 
 if __name__ == '__main__':
     url = argv[1]
