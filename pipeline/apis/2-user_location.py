@@ -16,7 +16,7 @@ if __name__ == '__main__':
         if r.status_code == 403:
             ratelimit = int(r.headers.get('X-Ratelimit-Reset', 0))
             current_timestamp = int(time.time())
-            x = int((ratelimit - current_timestamp) // 60)
+            x = (ratelimit - current_timestamp) // 60
             print(f"Reset in {x} min")
         elif r.status_code == 404:
             print("Not found")
