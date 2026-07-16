@@ -6,5 +6,20 @@ writing a script that prints location of a specific user
 import requests
 from sys import argv
 
-url = argv[1]
-print(url)
+if __name__ == '__main__':
+    url = argv[1]
+    # print(url)  # helferlein
+
+    # start request
+    with requests.get(url) as r:
+        if r.status_code == 403:
+            ratelimit = int(response.headers.get('X-Ratelimit-Reset', 0))
+            current_timestamp = int(time.time())
+            x = int(round((ratelimit - current_timestamp) / 60))
+            print("reset in {x} min")
+        elif r.status_code == 404:
+            print("Not found")
+        else:
+            r_text = r.json()
+            location = r_text.get('location')
+            print(location)
