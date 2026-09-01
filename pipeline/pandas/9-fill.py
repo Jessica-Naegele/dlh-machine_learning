@@ -19,11 +19,5 @@ def fill(df):
     df_new['Open'] = df['Open'].fillna(value=df_new['Close'])
     df_new['Volume_(BTC)'] = df_new['Volume_(BTC)'].fillna(value=0)
     df_new['Volume_(Currency)'] = df_new['Volume_(Currency)'].fillna(value=0)
+
     return df_new
-
-
-"""
-able to write it a bit more efficiently by using a dictionary: e.g.
-# Pass a dictionary mapping columns to their fill values
-df_new = df_new.fillna(value={'Volume_(BTC)': 0, 'Volume_(Currency)': 0})
-"""
